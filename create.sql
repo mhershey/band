@@ -1,4 +1,4 @@
-create DATABASE 'band';
+create database band;
 CREATE USER 'band'@'localhost' IDENTIFIED BY 'bandpass';
 GRANT ALL PRIVILEGES ON *.* TO 'band'@'localhost' WITH GRANT OPTION;
 use band;
