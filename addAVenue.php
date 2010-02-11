@@ -46,6 +46,7 @@ if(isset($_GET['venueId'])) {
 	$row = array();
 }
 ?>
+<a style="float:right;" href="addAVenue.php?venueId=<?php echo $venueId;?>">Delete</a>
 <h2><b><?php echo (isset($_GET['venueId'])?'Update':'Add');?> a</b> Venue</h2>
 <form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="POST">
 	<input type="hidden" name="update" value="true">

@@ -29,9 +29,9 @@ include("db_connect.php");
 			<a href="bands.php">Bands</a>
 			<a href="venues.php">Venues</a>
 			<a href="events.php">Events</a>
-			<a href="addABand.php">+Band</a>
-			<a href="addAVenue.php">+Venue</a>
-			<a href="addAnEvent.php">+Event</a>
+			<a href="addABand.php">Add a Band</a>
+			<a href="addAVenue.php">Add a Venue</a>
+			<a href="addAnEvent.php">Add an Event</a>
 			<a class="lastchild" href="account.php">My Account</a>
 		</div>
 		<div id="body">
