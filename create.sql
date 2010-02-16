@@ -143,6 +143,28 @@ CREATE TABLE IF NOT EXISTS `venue` (
 INSERT INTO `venue` (`venueId`, `name`, `city`, `zipcode`, `description`, `musicType`) VALUES
 (1, 'Antones', 'Fredericksburg', 22401, 'Vivamus vitae massa odio, a laoreet odio. Etiam a nulla tellus. Proin in dolor eros. Suspendisse eu justo luctus massa congue placerat sit amet eu lectus. Morbi eu scelerisque nibhad', 'blues');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(16) NOT NULL,
+  `pass` varchar(16) NOT NULL,
+  PRIMARY KEY (`userID`),
+  KEY `user` (`user`,`pass`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `login`
+--
+INSERT INTO `login` (`userId`, `user`, `pass`) VALUES
+(1, `admin`, `test`);
+
+-- --------------------------------------------------------
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
