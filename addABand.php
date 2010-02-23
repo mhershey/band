@@ -1,5 +1,13 @@
-<?php include("header.php");
+<?php include_once("db_connect.php");
 $bandId = preg_replace("@[^\d]+@","",$_GET['bandId']);
+if(isset($_POST['delete'])) {
+	$query = "DELETE FROM Band WHERE bandId = '$bandId'";
+	mysqli_query($db,$query);
+	header("Location: addABand.php");
+	exit;
+	//***
+}
+include("header.php");
 if(isset($_POST['update'])) {
 	$errors = array();
 	$name = str_replace("'","\'",$_POST['name']);
@@ -54,7 +62,16 @@ if(isset($_GET['bandId'])) {
 	$row = array();
 }
 ?>
+<?php
+if(isset($_GET['bandId'])) { ?>
+	<form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="POST" name="deleteForm">
+		<input type="hidden" name="delete" value="true">
+	</form>
+	<A HREF ="#" onclick="document.deleteForm.submit();" style = "float:right;">Delete</A>
+	<?php } ?>
 <h2><b><?php echo (isset($_GET['bandId'])?'Update':'Add');?> a</b> Band</h2>
+<form action="<?php ?>" method="POST">
+
 <form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="POST">
 	<input type="hidden" name="update" value="true">
 	<div>Name:</div><div><input type="text" name="name" value="<?php echo htmlentities($row['name']);?>"></div>

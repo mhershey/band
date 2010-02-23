@@ -5,8 +5,9 @@ $error = $user = $pass = "";
 
 if (isset($_POST['user']))
 {
-	$user = str_replace("@[^\d]+@","",$_POST['user']);
-	$pass = str_replace("@[^\d]+@","",$_POST['pass']);
+	
+	$user = str_replace("'","\'",$_POST['user']);
+	$pass = str_replace("'","\'",$_POST['pass']);
 	
 	if ($user == "" || $pass == "")
 	{
@@ -23,6 +24,7 @@ if (isset($_POST['user']))
 		}
 		else
 		{
+			
 			$_SESSION['user'] = $user;
 			$_SESSION['pass'] = $pass;
 			echo "<h3>You are now logged in. Please
