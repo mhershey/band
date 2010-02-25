@@ -29,7 +29,7 @@ include("header.php");
 <h2><?php echo $row['name'];?></h2>
 <img src="images/pic_1.jpg" width="112" height="92" alt="Pic 1" class="left" />
 <h3><?php echo $row['city'].', '.$row['state'];?></h3>
-<h4><?php echo $row['musicType'];?></h4>
+<h4><a href="#" onclick="document.bandSearchForm.bandSearch.value='<?php echo $row['musicType'];?>';document.bandSearchForm.submit();return false;"><?php echo $row['musicType'];?></a></h4>
 <p><?php echo $row['description'];?></p>
 
 <h2>Upcoming Events</h2>
