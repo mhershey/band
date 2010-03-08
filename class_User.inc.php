@@ -11,8 +11,14 @@ class User {
 		$safeUsername = str_replace("'","\'",$username);
 		$safePassword = str_replace("'","\'",$password);
 		include("db_connect.php");
-		mysqli_query($db,"INSERT INTO User (username,password) VALUES('$safeUsername',SHA('$safePassword'))");
-		User::login($username,$password);
+		$result = mysqli_query($db,"SELECT * FROM User WHERE username='$safeUsername' LIMIT 1");
+		if(mysqli_num_rows($result)==0) {
+			mysqli_query($db,"INSERT INTO User (username,password) VALUES('$safeUsername',SHA('$safePassword'))");
+			User::login($username,$password);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public static function isLoggedIn() {

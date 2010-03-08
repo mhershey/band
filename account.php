@@ -27,4 +27,8 @@ _END;
 
 ?>
 
+<p></p>
+<p>Not a member? 
+<a href="signup.php">Sign Up</a></p>
+
 <?php include("footer.php");?>
