@@ -16,13 +16,9 @@ include("db_connect.php");
 	
 	<div id="wrapper">
 		<a href="index.php">
-			<div id="header">
-				<div>
-				<p>Welcome to CPSC 350 Bands!</p>
-				<p>Where we tell you everything about up coming events and bands</p> 
+			<center><div id="header">
 				
-				</div>
-			</div>
+			</div></center>
 		</a>
 		<div id="nav">
 			<a href="index.php">Home</a>
