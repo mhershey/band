@@ -4,7 +4,7 @@
 						<img src="images/pic_2.jpg" width="112" height="92" alt="Pic 2" class="left" />
 						<p>Type the name of band, or type of music</p>
 						<form action="bands.php#main" method="POST" name="bandSearchForm">
-							<input type="text" id="bandSearch" name="bandSearch" value="<?php echo (isset($_POST['bandSearch'])?$_POST['bandSearch']:'Band Name...');?>">
+							<input id = "bandSearch" type="text" id="bandSearch" name="bandSearch" value="<?php echo (isset($_POST['bandSearch'])?$_POST['bandSearch']:'Band Name...');?>">
 							<input type="submit" value="Go">
 						</form>
 						<hr>
@@ -20,8 +20,8 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<div id="footer">
 			<p>&copy; 2010 CPSC 350 :P all right reserved</p>
 		</div>

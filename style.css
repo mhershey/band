@@ -37,11 +37,11 @@ img {
 	padding-right: 22px;
 }
 #header {
-	height: 320px;
-	background: url(images/header.jpg) no-repeat;
+	height: 234px;
+	background: url(images/header.jpg) -22px -38px no-repeat;
 }
 #header div {
-	padding: 183px 213px 0px 82px;
+	padding: 90px 213px 0px 82px;
 }
 #header p {
 	margin: 0px;

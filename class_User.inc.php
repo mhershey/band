@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
 User::create($username,$password);
 User::isLoggedIn(); //Boolean
@@ -21,9 +22,19 @@ class User {
 		}
 	}
 	
+	public static function getUserName() {
+		if(self::isLoggedIn()) {
+			include("db_connect.php");
+			$result = mysqli_query($db,"SELECT * FROM User WHERE userId='".$_SESSION['userId']."'");
+			$row = mysqli_fetch_array($result);
+			return $row['username'];
+		} else {
+			echo "ERROR";
+		}
+	}
+	
 	public static function isLoggedIn() {
-		session_start();
-		if(isset($_SESSION['userId'])) {
+		if(isset($_SESSION['userId']) && is_numeric($_SESSION['userId'])) {
 			return true;
 		} else {
 			return false;
@@ -39,7 +50,6 @@ class User {
 			return false; //No User Found
 		} else {
 			$row = mysqli_fetch_array($result);
-			session_start();
 			$_SESSION['userId'] = $row['userId'];
 			return true;
 		}

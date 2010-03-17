@@ -1,5 +1,5 @@
 <?php include("header.php");?>
-<h2>Bands</h2>
+<h2>Venues</h2>
 <ul>
 	<?php
 	$search = str_replace("'","\'",$_POST['venueSearch']);

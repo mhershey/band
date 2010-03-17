@@ -18,7 +18,7 @@ else
 <title> Band Set up page </title>
 </head>
 <body>
-<form method="post" action="setup.php">
+<form method="post" action="create.php">
 Enter the information for your mysql database server.
 <br>
 Enter Root Name: <input type="text" name="root">
