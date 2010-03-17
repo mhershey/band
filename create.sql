@@ -1,4 +1,6 @@
+drop DATABASE IF EXISTS band;
 create database band;
+
 CREATE USER 'band'@'localhost' IDENTIFIED BY 'bandpass';
 GRANT ALL PRIVILEGES ON *.* TO 'band'@'localhost' WITH GRANT OPTION;
 use band;
@@ -50,7 +52,18 @@ CREATE TABLE IF NOT EXISTS `band` (
 --
 
 INSERT INTO `band` (`bandId`, `name`, `city`, `state`, `bandMembers`, `description`, `recordLabel`, `musicType`) VALUES
-(1, 'Electric Lights', 'Manassas', 'VA', 'David, Nick, Tom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas magna est, dignissim a luctus rhoncus, consequat nec libero. Cras quis urna ac ligula dignissim feugiat. Curabitur neque eros, tincidunt sed varius non, porta nec justo. Nulla eu elit tortor. Etiam sapien dolor, commodo et ullamcorper ac, vehicula ac lorem. Aenean ut orci neque, sed placerat leo.', 'Cooperative Records', 'rock, indie, acustic');
+(1, 'Electric Lights', 'Manassas', 'VA', 'David, Nick, Tom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas magna est, dignissim a luctus rhoncus, consequat nec libero. Cras quis urna ac ligula dignissim feugiat. Curabitur neque eros, tincidunt sed varius non, porta nec justo. Nulla eu elit tortor. Etiam sapien dolor, commodo et ullamcorper ac, vehicula ac lorem. Aenean ut orci neque, sed placerat leo.', 'Cooperative Records', 'rock, indie, acustic'),
+(2, 'Linkin Park', 'Agoura Hills', 'Ca', 'Chester Bennington Rob Bourdon Brad Delson David "Phoenix" Farrell Joe Hahn Mike Shinoda', 'Rock Band Group', 'Dead by Sunrise', 'Rock'),
+(3, 'Brad Paisley', 'Glen Dale', 'We', 'Brad Paisley', 'Songs such as: To the World, Mud on the Tires', 'Arista Nashville', 'Country'),
+(4, 'Metallica', 'Los Angeles', 'Ca', 'James Hetfield Lars Ulrich Kirk Hammett Robert Trujillo', 'Classic Rock Band', 'Warner Bros.', 'Heavy metal'),
+(5, 'Jay-Z', 'New York', 'Ne', 'Shawn Corey Carter', 'Rapper', 'Roc Nation', 'Rap'),
+(6, 'DragonForce', 'London', 'En', 'Herman Li Sam Totman Vadim Pruzhanov Dave Mackintosh Frédéric Leclercq', 'Fastest Band in world at one time', 'Sanctuary', 'Power Metal'),
+(7, 'The Blanks', 'Na', 'Na', 'Sam Lloyd, George Miserlis, Philip McNiven, and Paul F. Perry.', 'Famous band from show scrubs', 'CD Baby', 'A cappella'),
+(8, 'Lazlo Bane', 'Santa Monica', 'Ca', 'Lazlo Bane', 'Superman theme song to popular tv show Scrubs.', 'Lookout Sound', 'Alternative Rock'),
+(9, 'Tim McGraw', 'Delhi', 'Lo', 'Samuel Timothy McGraw', 'Country Legend', 'Curb Records', 'Country'),
+(10, 'Eminem', 'Detriot', 'Mi', 'Marshall Bruce Mathers III', 'Artist performing in multiple bands including D12', 'Mashin'' Duck Records', 'Hip Hop'),
+(11, 'Rick Astley', 'Lancashire', 'En', 'Richard Paul Astley', 'Famous for people using his songs for RickRolling', 'Sony BMG', 'Eurobeat'),
+(12, 'Ke$ha', 'Los Angeles', 'Ca', 'Kesha Rose Sebert', 'Popular for redo of "Right Round" initially', 'Nashville', 'Electropop');
 
 -- --------------------------------------------------------
 
@@ -160,8 +173,23 @@ CREATE TABLE IF NOT EXISTS `venue` (
 -- Dumping data for table `venue`
 --
 
-INSERT INTO `venue` (`venueId`, `name`, `city`, `zipcode`, `description`, `musicType`) VALUES
-(1, 'Antones', 'Fredericksburg', 22401, 'Vivamus vitae massa odio, a laoreet odio. Etiam a nulla tellus. Proin in dolor eros. Suspendisse eu justo luctus massa congue placerat sit amet eu lectus. Morbi eu scelerisque nibhad', 'blues');
+INSERT INTO `venue` (`name`, `city`, `zipcode`, `description`, `musicType`) VALUES
+('Birchmere', 'Alexandria', 22305, 'One of the leading Folk clubs in the country. They also present some R&B/Bluegrass/Country/Fusion Jazz. Mike Jaworek books the club.', 'folk'),
+('Brittany\'s Restaurant & Sports Bar', 'Woodbridge', 22192, 'Rock and Roll, Classic Rock, Modern. They run the live music on Fridays, Saturdays and Special Events.', 'rock'),
+('Capital Alehouse', 'Richmond', 23219, 'It was built in the 1870s and we have restored the original hardwood floors, wooden rafters and old brick walls.', 'folk'),
+('Club Paradiso', 'Springfield', 22150, 'They present Country music & Jamie La Ritz is hosting an open mic.', 'country'),
+('Folk Club of Reston-Herndon', 'Herndon', 22070, 'An all-volunteer organization that promotes traditional and contemporary folk music and hosts an open mike every Tuesday.', 'folk'),
+('Jammin Java', 'Vienna', 22181, 'Variety of music from folk to alternative rock. National and regional acts.', 'rock'),
+('Jaxx', 'Springfield', 22152, 'Not really known for its cussine however you can occassionally see national Hard Rock and Metal acts that you won\'t find at other venues.', 'rock'),
+('Nissan Pavillion', 'Bristow', 20136, '25,000 seats makes this the largest outdoor amphitheater in the region.', 'misc'),
+('Old Brogue', 'Great Falls', 22066, 'A small pub with great food in the beautiful Great Falls area. Its nightly entertainment is Folk/Acoustic.', 'folk'),
+('Patriot Center', 'Alexandria', 22314, '10,000 plus or minus seats. Can be rented.', 'misc'),
+('Rhodeside Grill', 'Arlington', 22202, 'They present alternative rock and acoustic music.', 'alternative'),
+('Sala Thai', 'Arlington', 22202, 'Live jazz every Friday and Saturday nights. No cover charge for the music.', 'jazz'),
+('Secrets', 'Alexandria', 22309, 'Presents Rock/Pop mostly on weekends.', 'rock'),
+('Sign of the Whale', 'Falls Church', 22042, 'A restaurant/bar that presents Acoustic music.', 'acoustic'),
+('Sunset Grille', 'Annandale', 22003, 'Peanut shells litter the floor and some of the best Blues and Rockabilly sounds in town blast you out of your seat.', 'blues');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
