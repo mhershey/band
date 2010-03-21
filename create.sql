@@ -5,32 +5,6 @@ CREATE USER 'band'@'localhost' IDENTIFIED BY 'bandpass';
 GRANT ALL PRIVILEGES ON *.* TO 'band'@'localhost' WITH GRANT OPTION;
 use band;
 
--- phpMyAdmin SQL Dump
--- version 3.2.4
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Feb 25, 2010 at 04:30 PM
--- Server version: 5.1.41
--- PHP Version: 5.3.1
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `band`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `band`
---
 
 CREATE TABLE IF NOT EXISTS `band` (
   `bandId` int(11) NOT NULL AUTO_INCREMENT,
@@ -46,10 +20,6 @@ CREATE TABLE IF NOT EXISTS `band` (
   KEY `city` (`city`,`state`,`bandMembers`,`recordLabel`),
   KEY `musicType` (`musicType`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `band`
---
 
 INSERT INTO `band` (`bandId`, `name`, `city`, `state`, `bandMembers`, `description`, `recordLabel`, `musicType`) VALUES
 (1, 'Electric Lights', 'Manassas', 'VA', 'David, Nick, Tom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas magna est, dignissim a luctus rhoncus, consequat nec libero. Cras quis urna ac ligula dignissim feugiat. Curabitur neque eros, tincidunt sed varius non, porta nec justo. Nulla eu elit tortor. Etiam sapien dolor, commodo et ullamcorper ac, vehicula ac lorem. Aenean ut orci neque, sed placerat leo.', 'Cooperative Records', 'rock, indie, acustic'),
@@ -67,10 +37,6 @@ INSERT INTO `band` (`bandId`, `name`, `city`, `state`, `bandMembers`, `descripti
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `comment`
---
-
 CREATE TABLE IF NOT EXISTS `comment` (
   `commentId` int(11) NOT NULL AUTO_INCREMENT,
   `bandId` int(11) NOT NULL,
@@ -80,19 +46,9 @@ CREATE TABLE IF NOT EXISTS `comment` (
   KEY `bandId` (`bandId`,`datePosted`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `comment`
---
-
 INSERT INTO `comment` (`commentId`, `bandId`, `description`, `datePosted`) VALUES
 (1, 1, 'This band is AWESOME', '2010-02-10 00:36:22'),
 (2, 1, 'WOW', '2010-02-11 00:44:52');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `event`
---
 
 CREATE TABLE IF NOT EXISTS `event` (
   `eventId` int(11) NOT NULL AUTO_INCREMENT,
@@ -103,19 +59,9 @@ CREATE TABLE IF NOT EXISTS `event` (
   UNIQUE KEY `venueId` (`venueId`,`bandId`,`performanceDate`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `event`
---
-
 INSERT INTO `event` (`eventId`, `venueId`, `bandId`, `performanceDate`) VALUES
 (1, 1, 1, '2010-02-07 09:00:00'),
 (2, 1, 1, '2010-06-19 09:01:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `popularalbum`
---
 
 CREATE TABLE IF NOT EXISTS `popularalbum` (
   `popularAlbumId` int(11) NOT NULL AUTO_INCREMENT,
@@ -125,17 +71,6 @@ CREATE TABLE IF NOT EXISTS `popularalbum` (
   KEY `bandId` (`bandId`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `popularalbum`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
 CREATE TABLE IF NOT EXISTS `user` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
@@ -144,17 +79,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `username` (`username`),
   KEY `password` (`password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `user`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `venue`
---
 
 CREATE TABLE IF NOT EXISTS `venue` (
   `venueId` int(11) NOT NULL AUTO_INCREMENT,
@@ -168,10 +92,6 @@ CREATE TABLE IF NOT EXISTS `venue` (
   KEY `city` (`city`,`zipcode`),
   KEY `musicType` (`musicType`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `venue`
---
 
 INSERT INTO `venue` (`name`, `city`, `zipcode`, `description`, `musicType`) VALUES
 ('Birchmere', 'Alexandria', 22305, 'One of the leading Folk clubs in the country. They also present some R&B/Bluegrass/Country/Fusion Jazz. Mike Jaworek books the club.', 'folk'),
@@ -189,8 +109,3 @@ INSERT INTO `venue` (`name`, `city`, `zipcode`, `description`, `musicType`) VALU
 ('Secrets', 'Alexandria', 22309, 'Presents Rock/Pop mostly on weekends.', 'rock'),
 ('Sign of the Whale', 'Falls Church', 22042, 'A restaurant/bar that presents Acoustic music.', 'acoustic'),
 ('Sunset Grille', 'Annandale', 22003, 'Peanut shells litter the floor and some of the best Blues and Rockabilly sounds in town blast you out of your seat.', 'blues');
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

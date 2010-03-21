@@ -1,4 +1,8 @@
 <?php
+if(is_file("create.php")) {
+	include("create.php");
+	exit;
+}
 include("db_connect.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
