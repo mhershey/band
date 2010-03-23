@@ -1,5 +1,6 @@
 <?php
 include("db_connect.php");
+require_once('class_User.inc.php');
 $bandId = preg_replace("@[^\d]+@","",$_GET['bandId']);
 if(isset($_GET['bandId'])) {
 	$query = "SELECT * FROM Band WHERE bandId='$bandId' LIMIT 1";
@@ -26,8 +27,7 @@ if(isset($_POST['update'])) {
 include("header.php");
 ?>
 <?php 
-require_once('class_User.inc.php');
-if(!User::isLoggedIn()) { ?>
+if(User::isLoggedIn()) { ?>
 <a style="float:right;" href="addABand.php?bandId=<?php echo $bandId;?>">Edit</a>
 <?php } ?>
 <h2><?php echo $row['name'];?></h2>
