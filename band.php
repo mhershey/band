@@ -25,7 +25,11 @@ if(isset($_POST['update'])) {
 
 include("header.php");
 ?>
+<?php 
+require_once('class_User.inc.php');
+if(!User::isLoggedIn()) { ?>
 <a style="float:right;" href="addABand.php?bandId=<?php echo $bandId;?>">Edit</a>
+<?php } ?>
 <h2><?php echo $row['name'];?></h2>
 <img src="images/pic_1.jpg" width="112" height="92" alt="Pic 1" class="left" />
 <h3><?php echo $row['city'].', '.$row['state'];?></h3>
