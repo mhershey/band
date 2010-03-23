@@ -109,3 +109,28 @@ INSERT INTO `venue` (`name`, `city`, `zipcode`, `description`, `musicType`) VALU
 ('Secrets', 'Alexandria', 22309, 'Presents Rock/Pop mostly on weekends.', 'rock'),
 ('Sign of the Whale', 'Falls Church', 22042, 'A restaurant/bar that presents Acoustic music.', 'acoustic'),
 ('Sunset Grille', 'Annandale', 22003, 'Peanut shells litter the floor and some of the best Blues and Rockabilly sounds in town blast you out of your seat.', 'blues');
+
+CREATE TABLE IF NOT EXISTS `location` (
+  `zipcode` int(11) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  PRIMARY KEY (`zipcode`),
+  KEY `city` (`city`,`zipcode`),
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+INSERT INTO `location` (`city`, `zipcode`, `state`) VALUES
+('Alexandria', 22305, 'VA'),
+('Woodbridge', 22192, 'VA'),
+('Richmond', 23219, 'VA'),
+('Springfield', 22150, 'VA'),
+('Herndon', 22070, 'VA'),
+('Vienna', 22181, 'VA'),
+('Springfield', 22152, 'VA'),
+('Bristow', 20136, 'VA'),
+('Great Falls', 22066, 'VA'),
+('Alexandria', 22314, 'VA'),
+('Arlington', 22202, 'VA'),
+('Arlington', 22202, 'VA'),
+('Alexandria', 22309, 'VA'),
+('Falls Church', 22042, 'VA'),
+('Annandale', 22003, 'VA');
