@@ -30,5 +30,5 @@ include("header.php");
 	</li>
 	<?php } ?>
 </ul>
-<h3><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=<?php echo urlencode($row['city'] .' '. $row['zipcode']);?>" target="_blank">Google Map</a>
+<h3><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=<?php echo urlencode($row['name'] .' '.$row['city'] .' '. $row['zipcode']);?>" target="_blank">Google Map</a>
 <?php include("footer.php");?>

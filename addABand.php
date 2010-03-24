@@ -1,4 +1,8 @@
 <?php include_once("db_connect.php");
+require_once('class_User.inc.php');
+if(!User::isLoggedIn()) {
+	header("Location: index.php");
+}
 $bandId = preg_replace("@[^\d]+@","",$_GET['bandId']);
 if(isset($_POST['delete'])) {
 	$query = "DELETE FROM Band WHERE bandId = '$bandId'";
