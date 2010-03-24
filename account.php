@@ -5,7 +5,7 @@ $error = $user = $pass = "";
 if (isset($_POST['user']))
 {
 	if(User::login($_POST['user'],$_POST['pass'])) {
-		header("Location: bands.php");
+		header("Location: index.php");
 	} else {
 		$error = "Error Logging In";
 	}

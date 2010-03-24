@@ -55,7 +55,7 @@ if(User::isLoggedIn()) { ?>
 	}
 
 ?></h4>
-
+<a href="<?php echo $row['url'];?>"><?php echo $row['url'];?></a>
 <p><?php echo $row['description'];?></p>
 
 <h2>Upcoming Events</h2>

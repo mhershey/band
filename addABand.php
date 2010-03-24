@@ -1,8 +1,4 @@
 <?php include_once("db_connect.php");
-require_once('class_User.inc.php');
-if(!User::isLoggedIn()) {
-	header("Location: index.php");
-}
 $bandId = preg_replace("@[^\d]+@","",$_GET['bandId']);
 if(isset($_POST['delete'])) {
 	$query = "DELETE FROM Band WHERE bandId = '$bandId'";
@@ -39,6 +35,8 @@ if(isset($_POST['update'])) {
 		$errors[] = "Must Include a Music Type";
 	}
 	
+	$url = str_replace("'","\'",$_POST['url']);
+	
 	$description = str_replace("'","\'",$_POST['description']);
 	if(strlen($description)==0) {
 		$errors[] = "Must Include a Description";
@@ -46,10 +44,10 @@ if(isset($_POST['update'])) {
 	
 	if(sizeOf($errors)==0) {
 		if(isset($_GET['bandId'])) {
-			$query = "UPDATE Band SET name='$name', city='$city', state='$state', bandMembers='$bandMembers',recordLabel='$recordLabel', description='$description', musicType='$musicType' WHERE bandId='$bandId' LIMIT 1";
+			$query = "UPDATE Band SET name='$name', city='$city', state='$state', bandMembers='$bandMembers',recordLabel='$recordLabel', url='$url', description='$description', musicType='$musicType' WHERE bandId='$bandId' LIMIT 1";
 			mysqli_query($db,$query);
 		} else {
-			$query = "INSERT INTO Band (name,city,state,bandMembers,recordLabel,description,musicType) VALUES('$name','$city','$state','$bandMembers','$recordLabel','$description','$musicType')";
+			$query = "INSERT INTO Band (name,city,state,bandMembers,recordLabel,url,description,musicType) VALUES('$name','$city','$state','$bandMembers','$recordLabel','$url','$description','$musicType')";
 			mysqli_query($db,$query);
 		}
 	} else {
@@ -84,6 +82,7 @@ if(isset($_GET['bandId'])) { ?>
 	<div>Band Members:</div><div><input type="text" name="bandMembers" value="<?php echo htmlentities($row['bandMembers']);?>"></div>
 	<div>Record Label:</div><div><input type="text" name="recordLabel" value="<?php echo htmlentities($row['recordLabel']);?>"></div>
 	<div>Music Type:</div><div><input type="text" name="musicType" value="<?php echo htmlentities($row['musicType']);?>"></div>
+	<div>Band URL:</div><div><input type="text" name="url" value="<?php echo htmlentities($row['url']);?>"></div>
 	<div>Description:</div><div><textarea name="description" style="width:400px;height:200px;"><?php echo htmlentities($row['description']);?></textarea></div>
 	<div><input type="submit" value="<?php echo (isset($_GET['bandId'])?'Update':'Add');?>"></div>
 </form>
